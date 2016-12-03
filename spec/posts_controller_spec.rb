@@ -71,4 +71,17 @@ RSpec.describe PostsController, type: :controller do
       expect(assigns(:post)).to eq(post)
     end
   end
+
+  describe "GET index" do
+    let(:user) { FactoryGirl.create(:user) }
+    let(:post) { FactoryGirl.create(:post, user: user) }
+
+    before do
+      get :index
+    end
+
+    it "retrieves all the posts" do
+      expect(assigns(:posts)).to eq([post])
+    end
+  end
 end

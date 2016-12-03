@@ -13,8 +13,11 @@
     <p class="alert"><%= alert %></p>
 
     <%= render 'layouts/nav' %>
-    <div class="container-fluid">
+    <div class="container-fluid col-md-8">
       <%= yield %>
+    </div>
+    <div class="container-fluid col-md-4">
+      <%= yield :sidebar %>
     </div>
   </body>
 </html>
