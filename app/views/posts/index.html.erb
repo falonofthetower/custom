@@ -1,0 +1,8 @@
+<%= render 'shared/content_title', title: "All posts" %>
+<% content_for :sidebar do %>
+  <%= render "sidebar" %>
+<% end %>
+
+<% @posts.each do |post| %>
+  <%= render "shared/show_post", post: post %>
+<% end %>
