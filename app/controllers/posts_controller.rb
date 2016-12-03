@@ -11,8 +11,8 @@ class PostsController < ApplicationController
       flash[:success] = "Post saved!"
       redirect_to post_path(@post)
     else
+      flash.now[:danger] = "Something went horrifyingly wrong"
       render :new
-      flash[:danger] = "Something went horrifyingly wrong"
     end
   end
 

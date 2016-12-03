@@ -9,8 +9,13 @@ class RepliesController < ApplicationController
     @reply = Reply.new(reply_params)
     @reply.post_id = @post.id
     @reply.user_id = current_user.id
-    @reply.save
-    redirect_to post_path(@post)
+    if @reply.save
+      redirect_to post_path(@post)
+      flash[:success] = "Reply created!"
+    else
+      flash.now[:danger] = "See Errors!"
+      render :new
+    end
   end
 
   private
