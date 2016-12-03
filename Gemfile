@@ -57,4 +57,10 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rails-controller-testing'
+  gem 'pry-byebug'
+  gem 'pry'
+end
+
+group :test do
+  gem 'shoulda-matchers', '~> 3.1'
 end

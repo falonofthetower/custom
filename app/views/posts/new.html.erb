@@ -1,0 +1,8 @@
+<h1>Create a Post</h1>
+<div class="well">
+  <%= form_for @post do |f| %>
+    <%= render 'shared/errors', object: @post %>
+
+    <%= render 'form', f: f %>
+  <% end %> 
+</div>
