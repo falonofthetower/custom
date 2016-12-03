@@ -11,3 +11,8 @@
       </li>
   </div>
 </div>
+<p>
+  <% @post.replies.each do |reply| %>
+    <%= render 'shared/show_reply', reply: reply, user: current_user, post: @post %>
+  <% end %>
+</p>

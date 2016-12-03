@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   devise_scope :user do
     authenticated :user do
       root 'posts#index', as: :authenticated_root
-      resources :posts, only: [:new, :create, :show, :index]
+      resources :posts, only: [:new, :create, :show, :index] do
+        resources :replies, only: [:new, :create]
+      end
     end
 
     unauthenticated do

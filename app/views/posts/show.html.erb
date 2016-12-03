@@ -3,3 +3,4 @@
   <%= render "sidebar" %>
 <% end %>
 <%= render "shared/show_post", post: @post %>
+<%= link_to "Reply", new_post_reply_path(@post), class: "btn btn-default" %>
