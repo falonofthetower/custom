@@ -1,0 +1,9 @@
+<h1>New Reply to: <%= @post.title %></h1>
+
+<div class="well">
+  <%= form_for [@post, @reply] do |f| %>
+    <%= render 'shared/errors', object: @post %>
+
+    <%= render 'form', f: f %>
+  <% end %> 
+</div>
