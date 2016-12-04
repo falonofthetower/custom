@@ -1,6 +1,5 @@
 <%= render 'shared/content_title', title: @post.title %>
 <% content_for :sidebar do %>
-  <%= render "sidebar" %>
+  <%= render "shared/sidebar" %>
 <% end %>
 <%= render "shared/show_post", post: @post %>
-<%= link_to "Reply", new_post_reply_path(@post), class: "btn btn-default" %>

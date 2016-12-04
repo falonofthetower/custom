@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     authenticated :user do
       root 'posts#index', as: :authenticated_root
       resources :posts, only: [:new, :create, :show, :index] do
-        resources :replies, only: [:new, :create]
+        resources :replies, only: [:create]
       end
     end
 

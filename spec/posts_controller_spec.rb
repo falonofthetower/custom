@@ -70,6 +70,21 @@ RSpec.describe PostsController, type: :controller do
       get :show, id: post.id
       expect(assigns(:post)).to eq(post)
     end
+
+    it "sets the @reply" do
+      get :show, id: post.id
+      expect(assigns(:reply)).to be_instance_of(Reply)
+    end
+
+    it "sets the @reply_errors when it is set in session" do
+      session["reply_errors"] = [
+        "can't be blank",
+        "is too short (minimum is 10 characters)"
+      ]
+
+      get :show, id: post.id
+      expect(assigns(:reply_errors)).to be_instance_of(ErrorProxy)
+    end
   end
 
   describe "GET index" do

@@ -4,19 +4,6 @@ RSpec.describe RepliesController, type: :controller do
   include Devise::Test::ControllerHelpers
   login_user
 
-  describe "GET new" do
-    context "logged in" do
-      it "renders the new page" do
-        post = FactoryGirl.create(:post)
-        get :new, { post_id: post }
-        expect(response).to be_success
-        expect(response).to have_http_status(200)
-        expect(assigns(:reply)).to be_instance_of(Reply)
-        expect(response).to render_template 'new'
-      end
-    end
-  end
-
   describe "POST create" do
     context "with valid inputs" do
       let(:first_post) { FactoryGirl.create(:post) }
@@ -52,11 +39,12 @@ RSpec.describe RepliesController, type: :controller do
       let(:first_post) { FactoryGirl.create(:post) }
 
       before do
+        request.env["HTTP_REFERER"] = "back"
         post :create, post_id: first_post, reply: { content: "" }
       end
 
       it "renders the new page" do
-        expect(response).to render_template :new
+        expect(response).to redirect_to("back")
       end
 
       it "does not create the post" do
@@ -65,6 +53,10 @@ RSpec.describe RepliesController, type: :controller do
 
       it "sets the flash danger message" do
         expect(flash[:danger]).to be_present
+      end
+
+      it "sets reply_errors" do
+        expect(session["reply_errors"]).not_to be_nil
       end
     end
   end
