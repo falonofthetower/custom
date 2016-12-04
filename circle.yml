@@ -1,0 +1,12 @@
+machine:
+  ruby:
+    version: 2.3.0
+deployment:
+  production:
+    branch: master
+    commands:
+      - heroku maintenance:on --app custom-communications
+      - heroku pg:backups capture --app custom-communications
+      - git push git@heroku.com:custom-communications.git $CIRCLE_SHA1:refs/heads/master
+      - heroku run rake db:migrate --app custom-communications
+      - heroku maintenance:off --app custom-communications
