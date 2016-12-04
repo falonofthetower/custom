@@ -3,18 +3,4 @@
   <%= render "shared/sidebar" %>
 <% end %>
 
-<table class="table table-striped">
-  <tr>
-    <th>Title</th>
-    <th>Author</th>
-    <th>Date Posted</th>
-  </tr>
-
-  <% @posts.each do |post| %>
-    <tr>
-      <td><%= link_to post.title, post_path(post) %></td>
-      <td><%= image_tag avatar_url(post.user) %>  <%= post.user.email %></td>
-      <td><%= post.created_at %></td>
-    </tr>
-  <% end %>
-</table> 
+<%= render "shared/show_posts", posts: @posts %>
