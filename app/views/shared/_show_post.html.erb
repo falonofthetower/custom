@@ -2,13 +2,15 @@
   <div class="span8 well">
     <h2><%= post.title %></h2>
       <p class="content"><%= post.content %></p>
-    <ul>
-      <li>
-        <span class="quiet">posted by</span> <%= post.user.email %>
-      </li>
-      <li>
-        <small>on <%= post.created_at %></small>
-      </li>
+      <hr class="black"/>
+      <ul>
+        <li>
+          <%= image_tag avatar_url(post.user) %> <%= post.user.email %>
+        </li>
+        <li>
+          <small>on <%= post.created_at %></small>
+        </li>
+      </ul>
   </div>
 </div>
 <p>
