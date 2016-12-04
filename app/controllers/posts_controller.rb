@@ -17,6 +17,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    set_reply
   end
 
   def index
@@ -32,5 +33,15 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:content, :title)
+  end
+
+  def set_reply
+    @reply = Reply.new
+    if session["reply_errors"] != nil
+      @reply_errors = ErrorProxy.new(session["reply_errors"])
+      session["reply_errors"] = nil
+    else
+      @reply_errors = @reply
+    end
   end
 end

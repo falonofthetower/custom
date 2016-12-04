@@ -3,4 +3,6 @@ class Reply < ApplicationRecord
   validates_length_of :content, minimum: 10
   belongs_to :user
   belongs_to :post
+  
+  include ErrorHelper
 end
