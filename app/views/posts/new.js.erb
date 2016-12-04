@@ -1,0 +1,5 @@
+$('#post_new_link').hide().after('<%= j render "form" %>');
+$("#cancel_new_post").click(function() {
+  $('#new_post').remove();
+  $('#post_new_link').show();
+});

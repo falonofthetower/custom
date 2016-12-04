@@ -1,6 +1,4 @@
 <%= render 'shared/content_title', title: "All posts" %>
-<% content_for :sidebar do %>
-  <%= render "shared/sidebar" %>
-<% end %>
+<%= link_to "New Post", new_post_path, class: "btn btn-default", id: "post_new_link", remote: true, authenticity_token: true %>
 
 <%= render "shared/show_posts", posts: @posts %>

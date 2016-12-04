@@ -8,11 +8,23 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      flash[:success] = "Post saved!"
-      redirect_to post_path(@post)
+      respond_to do |f|
+        f.html do
+          flash[:success] = "Post saved!"
+          redirect_to post_path(@post)
+        end
+
+        f.js
+      end
     else
-      flash.now[:danger] = "Something went horrifyingly wrong"
-      render :new
+      respond_to do |f|
+        f.html do
+          flash.now[:danger] = "Something went horrifyingly wrong"
+          render :new
+        end
+
+        f.js
+      end
     end
   end
 
@@ -21,7 +33,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.latest_to_oldest
   end
 
 

@@ -1,0 +1,7 @@
+<% if @post.valid? %>
+  $('#new_post').remove();
+  $('#post_new_link').show();
+  $('#post_list').prepend('<%= j render partial: 'posts/post', :locals => { post: @post} %>')
+<% else %>
+    $('#new_post').prepend('<%= j(render :partial => 'shared/errors', :locals => { object: @post }) %>');
+<% end %>

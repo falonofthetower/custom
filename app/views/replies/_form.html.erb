@@ -1,8 +1,14 @@
-<div class="control-group">
-  <%= f.label :content %><br>
-  <%= f.text_area :content, rows: 5 %>
-</div>
+<%= form_for [post, reply], remote: true, authenticity_token: true do |f| %>
+  <div id="reply_errors">
+    <%= render 'shared/errors', object: reply_errors %>
+  </div>
 
-<div class="control-group">
-  <%= f.submit class: 'btn btn-primary' %>
-</div>
+  <div class="control-group">
+    <%= f.label :content %><br>
+    <%= f.text_area :content, rows: 5 %>
+  </div>
+
+  <div class="control-group">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %> 
