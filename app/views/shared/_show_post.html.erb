@@ -14,15 +14,15 @@
   </div>
 </div>
 <p>
-  <% post.replies.each do |reply| %>
-    <%= render 'shared/show_reply', reply: reply, user: current_user, post: post %>
-  <% end %>
+  <ul id="replies">
+    <% post.replies.each do |reply| %>
+      <li>
+        <%= render 'shared/show_reply', reply: reply, user: reply.user %>
+      </li>
+    <% end %>
+  </ul>
 
-  <div class="well">
-    <%= form_for [post, @reply] do |f| %>
-      <%= render 'shared/errors', object: @reply_errors %>
-
-      <%= render 'replies/form', f: f %>
-    <% end %> 
+  <div class="well" id="reply_form">
+    <%= render 'replies/form', reply: @reply, post: post, reply_errors: @reply_errors %>
   </div>
 </p>

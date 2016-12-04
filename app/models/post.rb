@@ -7,4 +7,6 @@ class Post < ApplicationRecord
   has_many :replies
 
   include ErrorHelper
+
+  scope :latest_to_oldest, -> { order('created_at desc') }
 end
