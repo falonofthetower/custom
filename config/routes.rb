@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :posts, only: [:new, :create, :show, :index] do
         resources :replies, only: [:create]
       end
+      resources :users, only: [:show]
     end
 
     unauthenticated do
