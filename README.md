@@ -16,6 +16,7 @@ The configuration is done using [figaro](https://github.com/laserlemon/figaro) y
 ```
 figaro heroku:set -e production
 ```
+Go ahead and set your postgresql username/password or skip to just push to heroku
 
 - Database creation/initialization
 
@@ -43,7 +44,11 @@ heroku run rake db:migrate
 heroku addons:create sendgrid:starter
 ```
 
-finally swap the domain/host for your new heroku domain in config/application.yml or the whole app may or may not tumble like a house of cards. However, the password reset email will definately bomb.
+finally swap the domain/host for your new heroku domain in config/application.yml or the whole app may or may not tumble like a house of cards. However, the password reset email will definately bomb. And now would be time time for that
+
+```
+figaro heroku:set -e production
+```
 
 * Further notes
 
