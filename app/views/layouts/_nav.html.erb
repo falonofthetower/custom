@@ -3,7 +3,7 @@
     <%= link_to "Message Board", posts_path, class: "navbar-brand" %>
     <% if user_signed_in? %>
       <ul class="nav navbar-nav navbar-right">
-        <li><p class="navbar-text"><%= "Logged in as: #{current_user.email}" %></p></li>
+        <li><p class="navbar-text">Logged in as: <%= link_to current_user.email, user_path(current_user) %></p></li>
         <li class="active"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
       </ul>
     <% end %>

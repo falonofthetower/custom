@@ -1,12 +1,5 @@
 <hr>
-<div class="well">
-  <ul>
-    <li>
-      <h1>User activity for: <%= @user.email %></h1>
-    </li>
-</ul>
-</div>
-<%= current_user.email %>'s Activity
+<h1><%= current_user.email %>'s Activity</h1>
 <ul class="nav nav-tabs">
   <li class='<%= 'active' if params[:tab].nil? %>'>
     <%= link_to("#{@user.posts.size} posts", user_path(@user)) %>
