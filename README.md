@@ -1,15 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version 2.3.0
+- Ruby version 2.3.0
 It's in the Gemfile. It's probably not vital, but it is not otherwise tested
 
-* Configuration
-You will need to
+- To get the app up and running you will need to setup the ENV variables
 
 ```
 mv config/application.sample.yml config/application.yml
@@ -21,19 +15,21 @@ The configuration is done using [figaro](https://github.com/laserlemon/figaro) y
 figaro heroku:set -e production
 ```
 
-* Database creation/initialization
+- Database creation/initialization
 
 ```
 rake db:setup
 ```
 
-* How to run the test suite
+- Run the rspec test suite with (wait for it)
 
 ```
 rspec
 ```
 
-* Deployment instructions
+There are a ton of deprecation messages. They look like a tremendous amount of technical debt. Version 0.2 appears to be canceled though so we won't waste time fixing it this round.
+
+- Deployment instructions
 
 If you need to setup heroku toolbelt setup -> [instructions](https://devcenter.heroku.com/articles/getting-started-with-rails5#local-workstation-setup) otherwise all you need are
 
