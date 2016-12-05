@@ -3,7 +3,7 @@
     <% unless @post %>
       replied to: <%= link_to reply.post.title, post_path(reply.post)%> with:
     <% end %>
-    "<i><%= reply.content %></i>"<br />
+    "<%= sanitize reply.content %>"<br />
     <%= image_tag avatar_url(reply.user) %> <%= link_to "#{reply.user.email}", user_path(reply.user) %> at <%= reply.created_at %> 
   </div>
 </div>
