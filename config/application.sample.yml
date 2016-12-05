@@ -1,0 +1,10 @@
+# change the file_name to application.yml
+# push to heroku with: $ figaro heroku:set -e production
+USERNAME: YOUR_POSTGRES_USERNAME
+PASSWORD: PASSWORD_TO_THE_SAME
+HOST: http://localhost:3000
+DEVISE_SECRET_KEY: random_key
+
+production:
+  HOST: https://your-domain-name.com
+  DEVISE_SECRET_KEY: long_random_string_of_numbers_that_do_not_really_matter_since_hacking_this_app_would_be_silly
