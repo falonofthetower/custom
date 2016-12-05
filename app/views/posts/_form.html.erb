@@ -1,5 +1,7 @@
 <%= form_for @post, remote: true, authenticity_token: true do |f| %>
-  <%= render 'shared/errors', object: @post, id: "errors" %>
+  <div id="post_errors">
+    <%= render 'shared/errors', object: @post, id: "errors" %>
+  </div>
   <div class="control-group">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
