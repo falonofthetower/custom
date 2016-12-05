@@ -1,5 +1,5 @@
 <% if @reply.valid? %>
-  $('#replies').append('<%= j render partial: 'shared/show_reply', :locals => { reply: @reply, user: @reply.user } %>')
+  $('#replies').prepend('<%= j render partial: 'shared/show_reply', :locals => { reply: @reply, user: @reply.user } %>')
   $('#reply_form').html('<%= j render partial: 'replies/form', :locals => { reply: @new_reply, post: @post, reply_errors: @new_reply } %>')
 <% else %>
   $('#reply_errors').html('<%= j(render :partial => 'shared/errors', :locals => { object: @reply }) %>');

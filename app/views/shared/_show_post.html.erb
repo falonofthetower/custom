@@ -14,7 +14,7 @@
 </div>
 <p>
   <ul id="replies">
-    <% post.replies.each do |reply| %>
+    <% post.replies.latest_to_oldest.each do |reply| %>
       <li>
         <%= render 'shared/show_reply', reply: reply, user: reply.user, post: reply.post %>
       </li>
